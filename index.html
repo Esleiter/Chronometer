@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro ⌛</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        body {
+            background: #1A1C22;
+            color: #1C9CEA;
+        }
+        p {
+            color: #fff;
+        }
+        #powered {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #powered > a {
+            color: #1C9CEA;
+        }
+    </style>
+
+</head>
+<body class="grid h-screen place-items-center font-mono">
+    <p id="powered">Powered By <a href="https://esleiter.com" target="_blank">esleiter.com</a></p>
+    <div>
+        <p class="text-center text-4xl">
+            <span id="m">00</span>:
+            <span id="s">00</span>.
+            <span id="ms">00</span>
+        </p>
+
+        <button onclick="Iniciar()"><i class="bx bx-play text-6xl"></i></button>
+        <button onclick="Pausar()"><i class="bx bx-pause text-6xl"></i></button>
+        <button onclick="Detener()"><i class="bx bx-stop text-6xl"></i></button>
+    </div>
+
+    <script>
+        let ms = 0;
+        let s = 0;
+        let m = 0;
+        let cronometro;
+
+        function Iniciar () {
+            cronometro = setInterval(Incrementar, 10);
+        }
+
+        function Pausar () {
+            clearInterval(cronometro)
+        }
+
+        function Detener () {
+            clearInterval(cronometro)
+            ms = 0;
+            s = 0;
+            m = 0;
+        }
+        
+        function Incrementar () {
+                ms++;
+                mseg = Math.trunc(((ms / 100) - s) * 100);
+                document.getElementById("ms").innerHTML = mseg;
+                if (s >= 60) {
+                    ms = 0;
+                    m++;
+                }
+                s = Math.trunc(ms / 100);
+                document.getElementById("s").innerHTML = s;
+                document.getElementById("m").innerHTML = m;
+            }
+    </script>
+    
+</body>
+</html>
