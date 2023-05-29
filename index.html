@@ -4,27 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cronómetro ⌛</title>
+
+    <meta name="robots"  content="index, follow"/>
+    <meta name="description" content="Start, pause, and track time effortlessly. Measure milliseconds, seconds, and minutes precisely. Perfect for accurate timekeeping!" />
+
+    <meta name="author" content="Esleiter"/>
+    <title>Chronometer ⌛</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <style>
-        body {
-            background: #1A1C22;
-            color: #1C9CEA;
-        }
-        p {
-            color: #fff;
-        }
-        #powered {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-        #powered > a {
-            color: #1C9CEA;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 <body class="grid h-screen place-items-center font-mono">
@@ -36,45 +25,12 @@
             <span id="ms">00</span>
         </p>
 
-        <button onclick="Iniciar()"><i class="bx bx-play text-6xl"></i></button>
-        <button onclick="Pausar()"><i class="bx bx-pause text-6xl"></i></button>
-        <button onclick="Detener()"><i class="bx bx-stop text-6xl"></i></button>
+        <button id="play" onclick="Start()"><i class="bx bx-play text-6xl"></i></button>
+        <button onclick="Pause()"><i class="bx bx-pause text-6xl"></i></button>
+        <button onclick="Stop()"><i class="bx bx-stop text-6xl"></i></button>
     </div>
 
-    <script>
-        let ms = 0;
-        let s = 0;
-        let m = 0;
-        let cronometro;
-
-        function Iniciar () {
-            cronometro = setInterval(Incrementar, 10);
-        }
-
-        function Pausar () {
-            clearInterval(cronometro)
-        }
-
-        function Detener () {
-            clearInterval(cronometro)
-            ms = 0;
-            s = 0;
-            m = 0;
-        }
-        
-        function Incrementar () {
-                ms++;
-                mseg = Math.trunc(((ms / 100) - s) * 100);
-                document.getElementById("ms").innerHTML = mseg;
-                if (s >= 60) {
-                    ms = 0;
-                    m++;
-                }
-                s = Math.trunc(ms / 100);
-                document.getElementById("s").innerHTML = s;
-                document.getElementById("m").innerHTML = m;
-            }
-    </script>
+    <script src="main.js"></script>
     
 </body>
 </html>
