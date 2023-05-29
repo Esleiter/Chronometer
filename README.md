@@ -28,5 +28,5 @@ If the seconds (s) reach 60, it resets ms to 0 and increments the minutes (m) by
 Finally, it updates the corresponding HTML elements for seconds and minutes.
 
 ## Screenshot
-![Image text](https://raw.githubusercontent.com/EsleiterChronometer/codespace-esleiter-studious-meme-xpxwg44g4q6f64j7/screenShot/screenShot.png)
+![Image text](https://raw.githubusercontent.com/Esleiter/Chronometer/codespace-esleiter-studious-meme-xpxwg44g4q6f64j7/img/screenShot/screenShot.png)
 
